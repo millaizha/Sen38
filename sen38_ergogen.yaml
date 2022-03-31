@@ -1,0 +1,154 @@
+points:
+  zones:
+    matrix:
+      columns:
+        pinky:
+          stagger: 4
+          rotate: 7
+          rows:
+            home.bind: [0,10,5,0]
+            top.bind: [10,10,10,0]
+            bottom.bind: [0,1,0,2]
+          key:
+            column_net: P5
+        ring:
+          stagger: 9
+          spread: U
+          origin: [-0.5U, -0.5U]
+          rotate: -7
+          rows:
+            home.bind: [0,10,10,0]
+            top.bind: [10,10,10,0]
+            bottom.bind: [0,1,0,2]
+          key:
+            column_net: P6
+        middle:
+          stagger: 6
+          rows:
+            home.bind: [0,10,10,0]
+            top.bind: [10,10,10,0]
+            bottom.bind: [0,10,0,1]
+          key:
+            column_net: P7
+        index:
+          stagger: -5
+          rows:
+            home.bind: [0,10,10,0]
+            top.bind: [10,10,10,0]
+            bottom.bind: [0,10,0,1]
+          key:
+            column_net: P8
+        inner:
+          stagger: -3
+          rows:
+            home.bind: [0,0,10,0]
+            top.bind: [10,0,10,0]
+            bottom.bind: [0,0,0,0]
+          key:
+            column_net: P9
+      rows:
+        bottom:
+          bind: [10]
+          row_net: P16
+        home:
+          bind: [10]
+          row_net: P14
+        top:
+          row_net: P15
+    thumb:
+      anchor:
+        ref: matrix_index_bottom
+        shift: [ -1.15u, -u ]
+        rotate: -10
+      columns:
+        near:
+          spread: 19
+          key:
+            column_net: P6
+        home:
+          spread: U
+          rotate: -15
+          origin: [-0.5U, -0.5U]
+          key:
+            column_net: P7
+        far:
+          spread: U
+          rotate: -15
+          origin: [-0.5U, -0.5U]
+          key:
+            column_net: P8
+      rows:
+        home:
+          bind: [10,0,0,0]
+          padding: 0
+          row_net: P10
+    extra:
+      anchor:
+        ref: matrix_inner_bottom
+        shift: [u,-0.3u]
+      columns:
+        bottom:
+          key:
+            column_net: P9
+      rows:
+        home:
+          padding: 0
+          row_net: P10
+        
+  key:
+    footprints:
+      diode:
+        type: diode
+        nets:
+          from: =colrow 
+          to: =row_net
+        anchor:
+          shift: [0.45u,0]
+          rotate: 90
+        params:
+          through_hole: false
+      mx:
+        type: mx
+        nets:
+          from: =column_net
+          to: =colrow
+        params:
+            keycaps: true
+            reverse: true
+            hotswap: false
+      choc:
+        type: choc
+        anchor:
+          rotate: 180
+        nets:
+          from: =column_net
+          to: =colrow
+        params:
+            keycaps: true
+            reverse: true
+            hotswap: false
+pcbs:
+  sen38:
+    footprints:
+      promicro:
+        type: promicro
+        anchor:
+          ref: matrix_inner_home
+          shift: [19, 0.55u]
+          rotate: -90
+        params:
+          orientation: down
+      trrs:
+        type: trrs
+        nets:
+          A: GND
+          B: GND
+          C: P2
+          D: VCC
+        anchor:
+          ref: matrix_inner_bottom
+          shift: [1.5u, 0.35u]
+          rotate: -90
+        params:
+          reverse: true
+          symmetric: true
