@@ -1,7 +1,7 @@
 # Sen38
 ![Sen38](./sen38.png)  
 
-The Sen36 is 38-key split column stagger keyboard with pinky splay. 
+The Sen38 is 38-key split column stagger keyboard with pinky splay. 
 Made using [ergogen](https://ergogen.xyz)
 
 This keyboard is MX and Choc compatible.
